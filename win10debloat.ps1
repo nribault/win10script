@@ -12,7 +12,7 @@
 #
 #	Addition: One command to rule them all, One command to find it, and One command to Run it! 
 #
-#     > powershell -nop -c "iex(New-Object Net.WebClient).DownloadString('https://git.io/JJ8R4')"
+#     > powershell -nop -c "iex(New-Object Net.WebClient).DownloadString('https://git.io/JU4Rq')"
 #
 #	Chris Titus Additions:
 #
@@ -31,10 +31,24 @@ $tweaks = @(
 
 	### External Program Setup
 	"InstallTitusProgs", #REQUIRED FOR OTHER PROGRAM INSTALLS!
-	"InstallAdobe",
+	#"InstallAdobe",
 	"Install7Zip",
-	"InstallNotepadplusplus",
-	"InstallMediaPlayerClassic",
+	#"InstallNotepadplusplus",
+	#"InstallMediaPlayerClassic",
+	"InstallAllVCredist",
+	"InstallMicrosoftEdge",
+	"InstallFilezilla",
+	"InstallWinscp",
+	"InstallPutty",
+	"InstallVSCode",
+	"InstallMicrosoftTeams",
+	"InstallOffice365Business",
+	"InstallFortiClient",
+	"InstallKeepass",
+	"InstallKeepassRDP",
+	"InstallKeepassKeeagent",
+	"InstallOpenSSH",
+	"InstallOpenSSL",
 
 	### Windows Apps
 	"DebloatAll",
@@ -196,7 +210,7 @@ Function InstallTitusProgs {
 	choco install chocolatey-core.extension -y
 	Write-Output "Running O&O Shutup with Recommended Settings"
 	Import-Module BitsTransfer
-	Start-BitsTransfer -Source "https://raw.githubusercontent.com/ChrisTitusTech/win10script/master/ooshutup10.cfg" -Destination ooshutup10.cfg
+	Start-BitsTransfer -Source "https://raw.githubusercontent.com/nribault/win10script/master/ooshutup10.cfg" -Destination ooshutup10.cfg
 	Start-BitsTransfer -Source "https://dl5.oo-software.com/files/ooshutup10/OOSU10.exe" -Destination OOSU10.exe
 	./OOSU10.exe ooshutup10.cfg /quiet
 }
@@ -213,7 +227,7 @@ Function InstallJava {
 
 Function Install7Zip {
 	Write-Output "Installing 7-Zip"
-	choco install 7zip -y
+        choco install 7zip.install -y
 }
 
 Function InstallNotepadplusplus {
@@ -224,6 +238,76 @@ Function InstallNotepadplusplus {
 Function InstallMediaPlayerClassic {
 	Write-Output "Installing Media Player Classic (VLC Alternative)"
 	choco install mpc-hc -y
+}
+
+Function InstallAllVCredist {
+	Write-Output "Installing  all Visual C++ libraries"
+	choco install vcredist-all -y
+}
+
+Function InstallMicrosoftEdge {
+	Write-Output "Installing Microsoft Edge"
+	choco install microsoft-edge -y
+}
+
+Function InstallFilezilla {
+	Write-Output "Installing FileZilla"
+	choco install filezilla -y
+}
+
+Function InstallWinscp {
+	Write-Output "Installing Winscp"
+	choco install winscp.install -y
+}
+
+Function InstallPutty {
+	Write-Output "Installing Putty"
+	choco install putty.install -y
+}
+
+Function InstallVSCode {
+	Write-Output "Installing VSCode"
+	choco install vscode -y
+}
+
+Function InstallMicrosoftTeams {
+	Write-Output "Installing Microsoft Teams"
+	choco install microsoft-teams.install -y
+}
+
+Function InstallOffice365Business {
+	Write-Output "Installing Microsft Office365 for Business"
+	choco install office365business -y
+}
+
+Function InstallFortiClient {
+	Write-Output "Installing Firtigate Client"
+	choco install forticlientvpn -y
+}
+
+Function InstallKeepass {
+	Write-Output "Installing Keepass "
+	choco install keepass -y
+}
+
+Function InstallKeepassRDP {
+	Write-Output "Installing Keepass RDP Plugin"
+	choco install keepass-plugin-rdp -y
+}
+
+Function InstallKeepassKeeagent {
+	Write-Output "Installing Keepass Keeagent plugin"
+	choco install keepass-plugin-keeagent -y
+}
+
+Function InstallOpenSSH {
+	Write-Output "Installing OpenSSH"
+	choco install openssh -y
+}
+
+Function InstallOpenSSL {
+	Write-Output "Installing OpenSSL"
+	choco install openssl -y
 }
 
 ##########
